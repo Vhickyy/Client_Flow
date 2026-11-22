@@ -1,5 +1,7 @@
+import Overview from "../_views/dashboard_views/overview/Overview";
+
 const Dashbaord = () => {
-  return <div>Dashbaord</div>;
+  return <Overview />;
 };
 
 export default Dashbaord;

@@ -1,5 +1,5 @@
-import Sales_Tab from "../../../dashboard/sales-pipeline/sales_components/Sales_Tab";
-import Sales_Top from "../../../dashboard/sales-pipeline/sales_components/Sales_Top";
+import Sales_Tab from "./sales_components/Sales_Tab";
+import Sales_Top from "./sales_components/Sales_Top";
 
 const Sales_Pipeline_View = () => {
   return (

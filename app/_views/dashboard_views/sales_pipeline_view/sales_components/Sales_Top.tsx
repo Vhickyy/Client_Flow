@@ -13,7 +13,7 @@ const Sales_Top = () => {
           Track your deals and move opportunities towards successful sales.
         </App_Text>
       </div>
-      <div className="grid gap-4 grid-cols-4 rounded-lg mt-8">
+      <div className="grid gap-4 grid-cols-4 rounded-lg mt-4">
         {salesStats.map((stat, index) => (
           <Stats key={index} {...stat} />
         ))}
