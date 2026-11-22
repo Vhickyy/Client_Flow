@@ -1,26 +1,273 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@source "_views/**";
+@source "_layouts/**";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ========================================
+     CLIENTFLOW BRAND
+     ======================================== */
+
+  --color-primary: #263d32;
+  --color-primary-dark: #1b2d24;
+  --color-primary-light: #3d5948;
+  --color-primary-soft: #424844;
+  --color-primary-subtle: #8ea899;
+  --color-background: #f9faf1;
+  --color-sec-bg: #f3f4ec;
+  --color-grayish: #edefe6;
+
+  --color-secondary: #c96f50;
+  --color-secondary-light: #e5a18a;
+  --color-secondary-soft: #f9ede8;
+
+  --color-sage: #6f9879;
+  --color-sage-light: #e9f1ea;
+
+  --color-sand: #d9c5a3;
+  --color-sand-light: #f5efe5;
+
+  /* ========================================
+     TEXT
+     ======================================== */
+
+  --color-text-primary: #393c36;
+  --color-text-secondary: #696e67;
+  --color-text-muted: #92978f;
+  --color-text-inverse: #ffffff;
+
+  /* ========================================
+     SURFACES
+     ======================================== */
+
+  --color-surface: #ffffff;
+  --color-surface-soft: #fcfbf8;
+  --color-surface-section: #f6f1e8;
+  --color-surface-muted: #f1eee7;
+
+  /* ========================================
+     BORDERS
+     ======================================== */
+
+  --color-border: #e8e4db;
+  --color-border-subtle: #f0ede6;
+
+  /* ========================================
+     STATUS
+     ======================================== */
+
+  --color-success: #4f805b;
+  --color-success-light: #eaf3ec;
+
+  --color-warning: #c58a3a;
+  --color-warning-light: #fbf2e4;
+
+  --color-error: #c65b52;
+  --color-error-light: #f9ecea;
+
+  --color-info: #657c70;
+  --color-info-light: #edf1ee;
+
+  /* ========================================
+     CHARTS
+     ======================================== */
+
+  --color-chart-green: #263d32;
+  --color-chart-sage: #6f9879;
+  --color-chart-terracotta: #c96f50;
+  --color-chart-sand: #d9c5a3;
+  --color-chart-muted: #92978f;
+
+  /* ========================================
+     SHADCN / SEMANTIC COLORS
+     ======================================== */
+
+  /* --color-foreground: #393c36;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #393c36;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #393c36;
+
+  --color-muted: #f1eee7;
+  --color-muted-foreground: #92978f;
+
+  --color-accent: #eaf0eb;
+  --color-accent-foreground: #263d32;
+
+  --color-destructive: #c65b52;
+  --color-input: #e8e4db; */
+  --color-border: #e8e4db;
+  --color-ring: #6f9879;
+
+  /* ========================================
+     SIDEBAR
+     ======================================== */
+
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #393c36;
+  --color-sidebar-border: #e8e4db;
+
+  --color-sidebar-accent: #eaf0eb;
+  --color-sidebar-accent-foreground: #263d32;
+
+  --color-sidebar-primary: #263d32;
+  --color-sidebar-primary-foreground: #ffffff;
+
+  --color-sidebar-ring: #6f9879;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  --font-heading: var(--font-sans);
+  --font-body: "Inter", sans-serif;
+  --font-accent: "DM Sans", sans-serif;
+  --font-sans: var(--font-sans);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  /* --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6); */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background;
+    font-family: var(--font-body);
+    font-feature-settings: "ss01" on;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-body);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ========================================
+   REUSABLE COMPONENTS
+   ======================================== */
+
+@layer components {
+  .containerclass {
+    @apply mx-auto w-[90%] max-w-[1440px];
+  }
+
+  .page-container {
+    @apply mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-container {
+    @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8;
+  }
 }
+
+/* .dark {
+  --background: oklch(0.145 0 0);
+
+  --foreground: oklch(0.985 0 0);
+
+  --card: oklch(0.205 0 0);
+
+  --card-foreground: oklch(0.985 0 0);
+
+  --popover: oklch(0.205 0 0);
+
+  --popover-foreground: oklch(0.985 0 0);
+
+  --primary: oklch(0.922 0 0);
+
+  --primary-foreground: oklch(0.205 0 0);
+
+  --secondary: oklch(0.269 0 0);
+
+  --secondary-foreground: oklch(0.985 0 0);
+
+  --muted: oklch(0.269 0 0);
+
+  --muted-foreground: oklch(0.708 0 0);
+
+  --accent: oklch(0.269 0 0);
+
+  --accent-foreground: oklch(0.985 0 0);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 10%);
+
+  --input: oklch(1 0 0 / 15%);
+
+  --ring: oklch(0.556 0 0);
+
+  --chart-1: oklch(0.87 0 0);
+
+  --chart-2: oklch(0.556 0 0);
+
+  --chart-3: oklch(0.439 0 0);
+
+  --chart-4: oklch(0.371 0 0);
+
+  --chart-5: oklch(0.269 0 0);
+
+  --sidebar: oklch(0.205 0 0);
+
+  --sidebar-foreground: oklch(0.985 0 0);
+
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+
+  --sidebar-accent: oklch(0.269 0 0);
+
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+
+  --sidebar-border: oklch(1 0 0 / 10%);
+
+  --sidebar-ring: oklch(0.556 0 0);
+} */
